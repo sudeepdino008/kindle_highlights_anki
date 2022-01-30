@@ -51,23 +51,6 @@ with open('./kindle_highlights.txt', 'r') as highlights:
     lines = highlights.readlines()
     i = 0
     for (book_name, location, note) in highlight(lines):
-        # print(book_name)
-        # print(location)
-        # print(note)
-        # if len(note.split('\n')) > 2:
-        #     print(book_name)
-        #     print(note)
         anki_note = genanki.Note(model=my_model, fields = [book_name, note])
         my_deck.add_note(anki_note)
     genanki.Package(my_deck).write_to_file('khigh.apkg')
-  
-# my_note = genanki.Note(model=my_model,
-#                        fields=['Capital of Argentina', 'Buenos Aires'])
-# my_note2 = genanki.Note(model=my_model,
-#                         fields=['Capital of India', 'New Delhi'])
-
-
-# my_deck.add_note(my_note)
-# my_deck.add_note(my_note2)
-# genanki.Package(my_deck).write_to_file('output.apkg')
-
